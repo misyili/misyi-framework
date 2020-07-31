@@ -5,9 +5,9 @@
 
 ## 配置文件
 
-### settings 文件
+### [settings 文件](./file/settings.xml)
 
-采用阿里云效私有仓库, 本项目配置文件[地址](./file/settings.xml)
+采用阿里云效私有仓库
 
 ## misyi-framework-api
 
