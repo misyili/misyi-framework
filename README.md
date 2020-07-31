@@ -9,17 +9,17 @@
 
 采用阿里云效私有仓库, 本项目配置文件[地址](./file/settings.xml)
 
-## framework-api
+## misyi-framework-api
 
 > 公共 API 类库
 
-## framework-core
+## misyi-framework-core
 
 > 可信组件类库
 
-## framework-web
+## [misyi-framework-web](./document/framework-web.md)
 
-> web 拓展
+> web 拓展 
 
 - 支持低侵入返回统一响应体
 - 支持异常体系
@@ -27,10 +27,12 @@
 
 ## 待办事项
 
+- 集成 SpringCloudAlibaba
 - HTTP工具包
 - log 异步日志
 - jwt 认证
 - 非对称加密工具(RSA)
+- 重复调用统一校验
 - 文件上传下载工具, 并对接阿里sso
 - 整合阿里 Excel 导出工具
 - 多数据源
@@ -44,3 +46,5 @@
 - 整合 RabbitMQ
 - 整合 RoctetMQ
 - 整合微信授权登录等
+
+- 等等一大推框架必须的东西
