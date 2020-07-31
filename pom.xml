@@ -12,6 +12,7 @@
     <modules>
         <module>framework-api</module>
         <module>framework-core</module>
+        <module>framework-web</module>
     </modules>
 
 </project>
