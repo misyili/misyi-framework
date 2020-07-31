@@ -34,8 +34,8 @@ public enum SystemCodeEnum implements IBusinessEnum {
     DUBBO_REQUEST_FAILURE("1112", "DUBBO请求失败")
     ;
 
-    private String code;
-    private String message;
+    private final String code;
+    private final String message;
 
     SystemCodeEnum(String code, String message) {
         this.code = code;

@@ -22,7 +22,7 @@ public class HttpContextInterceptor extends HandlerInterceptorAdapter {
     private boolean isCacheRequestEnabled;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         if(isCacheRequestHeaderEnabled) {
             HttpContextHolder.INSTANCE.putRequestHeader(request);
         }
@@ -33,7 +33,7 @@ public class HttpContextInterceptor extends HandlerInterceptorAdapter {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         if(isCacheRequestHeaderEnabled) {
             HttpContextHolder.INSTANCE.removeRequestHeader();
         }

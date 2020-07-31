@@ -25,9 +25,9 @@ public class ReflectionUtils {
     /**
      * 通过反射设置属性的值
      *
-     * @param instance
-     * @param name
-     * @param value
+     * @param instance 对象实例
+     * @param name 属性名称
+     * @param value 属性值
      */
     public static void setPropertyValue(Object instance, String name, String value) {
         try {
@@ -55,8 +55,8 @@ public class ReflectionUtils {
     /**
      * 把Bean转换成Map用于签名
      *
-     * @param instance
-     * @return
+     * @param instance 待转换的对象
+     * @return 转换后的 map 对象
      */
     public static Map<String, Object> convertBean2MapForSignature(Object instance) {
         Map<String, Object> parameters = new HashMap<>();
@@ -84,20 +84,20 @@ public class ReflectionUtils {
     /**
      * 把带"-"的属性转成驼峰
      *
-     * @param originalName
-     * @return
+     * @param originalName 属性名
+     * @return 返回驼峰格式的属性名
      */
     public static String convertDelimited2Hump(String originalName, String regex) {
         if (originalName.contains(regex)) {
             String[] names = originalName.toLowerCase().split(regex);
             List<String> nameList = Arrays.stream(names)
-                    .filter(name -> StringUtils.isNotBlank(name))
+                    .filter(StringUtils::isNotBlank)
                     .collect(Collectors.toList());
             StringBuilder builder = new StringBuilder(nameList.get(0));
             nameList.stream().skip(1)
                     .forEach(name ->
                             builder.append(name.substring(0, 1).toUpperCase())
-                                    .append(name.substring(1, name.length()))
+                                    .append(name.substring(1))
                     );
             return builder.toString();
 

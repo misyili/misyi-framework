@@ -33,8 +33,6 @@ public enum HttpContextHolder {
 
     /**
      * 新增请求
-     *
-     * @param request
      */
     public final void putRequest(HttpServletRequest request) {
         REQUEST_THREAD_LOCAL.set(request);
@@ -49,8 +47,6 @@ public enum HttpContextHolder {
 
     /**
      * 获取当前线程请求
-     *
-     * @return
      */
     public final HttpServletRequest getRequest() {
         return REQUEST_THREAD_LOCAL.get();
@@ -59,8 +55,6 @@ public enum HttpContextHolder {
 
     /**
      * 获取请求头
-     *
-     * @return
      */
     public final Header getHeader() {
         return REQUEST_HEADER.get();
@@ -68,8 +62,6 @@ public enum HttpContextHolder {
 
     /**
      * 新增APP请求头
-     *
-     * @param request
      */
     public final void putRequestHeader(HttpServletRequest request) {
         Header header = new Header();

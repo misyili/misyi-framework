@@ -12,7 +12,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     /**
      * 获取uuid
-     * @return
+     * @return 返回删除 - 后的32位uuid
      */
     public static String uuid() {
         return UUID.randomUUID().toString().replaceAll("-", "");
