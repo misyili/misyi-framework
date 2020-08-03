@@ -1,3 +1,15 @@
+
+- [misyi-framework](#misyi-framework)
+  - [配置文件](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+    - [settings 文件](#settings-%E6%96%87%E4%BB%B6)
+  - [misyi-framework-api](#misyi-framework-api)
+  - [misyi-framework-core](#misyi-framework-core)
+  - [misyi-framework-web](#misyi-framework-web)
+  - [待办事项](#%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- doctoc README.md 即可生成目录 -->
+
 # misyi-framework 
 > 基础架构
 
@@ -7,7 +19,7 @@
 
 ### [settings 文件](./file/settings.xml)
 
-采用阿里云效私有仓库
+> 采用阿里云效私有仓库
 
 ## misyi-framework-api
 
@@ -28,6 +40,8 @@
 ## 待办事项
 
 - 集成 SpringCloudAlibaba
+- 添加工具类 (BeanCopy\DateUtils等)
+- 统一校验异常枚举的 code 码是否重复
 - HTTP工具包
 - log 异步日志
 - jwt 认证

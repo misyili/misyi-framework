@@ -10,12 +10,18 @@ import java.util.UUID;
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
+    public StringUtils() {
+        super();
+    }
+
     /**
      * 获取uuid
+     *
      * @return 返回删除 - 后的32位uuid
      */
     public static String uuid() {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
+
 
 }
