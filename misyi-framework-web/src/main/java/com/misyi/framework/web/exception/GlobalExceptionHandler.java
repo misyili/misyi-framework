@@ -12,6 +12,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -69,6 +70,25 @@ public class GlobalExceptionHandler {
             throwMessage = ExceptionMessageUtils.getSimpleMessage(e.getCause().getMessage());
         }
         return ApiResultBean.failure(HeaderHelper.getRequestId(), SystemCodeEnum.ILLEGAL_PARAM, throwMessage);
+    }
+
+    /**
+     * 404 异常
+     *
+     * [注]: 需要搭配以下配置才能生效
+     *
+     * #出现错误时, 直接抛出异常
+     * spring.mvc.throw-exception-if-no-handler-found=true
+     * #不要为我们工程中的资源文件建立映射
+     * spring.resources.add-mappings=false
+     */
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ApiResultBean noHandlerFoundException(NoHandlerFoundException e, HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        String message = String.format("请求路径: %s 不存在", uri);
+        log.error(message);
+        log.error("NoHandlerFoundException", e);
+        return ApiResultBean.failure(HeaderHelper.getRequestId(), SystemCodeEnum.ILLEGAL_REQUEST, message);
     }
 
 

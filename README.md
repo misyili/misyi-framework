@@ -25,7 +25,7 @@
 
 > 公共 API 类库
 
-## misyi-framework-core
+## [misyi-framework-core](./document/framework-core.md)
 
 > 可信组件类库
 
@@ -42,6 +42,7 @@
 - 集成 SpringCloudAlibaba
 - 添加工具类 (BeanCopy\DateUtils等)
 - 统一校验异常枚举的 code 码是否重复
+- 邮件发送
 - HTTP工具包
 - log 异步日志
 - jwt 认证
@@ -50,6 +51,7 @@
 - 文件上传下载工具, 并对接阿里sso
 - 整合阿里 Excel 导出工具
 - 多数据源
+- 分布式事务
 - 服务间异常传递
 - 服务透传请求头
 - 支持单点登录
