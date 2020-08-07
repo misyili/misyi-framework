@@ -131,6 +131,7 @@ public class TestQuery {
 }
 
 会直接对字段名进行拼接, 如果手动填写 message, 则会进行如下提示
+
 @NotBlank(message = "不正确")
 private String message;
 
