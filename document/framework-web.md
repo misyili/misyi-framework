@@ -1,11 +1,13 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [framework-web 使用文档](#framework-web-%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3)
   - [配置](#%E9%85%8D%E7%BD%AE)
   - [自定义统一返回](#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E)
   - [统一异常处理](#%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)
   - [参数校验处理](#%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E5%A4%84%E7%90%86)
+  - [系统业务 CODE 码重复校验](#%E7%B3%BB%E7%BB%9F%E4%B8%9A%E5%8A%A1-code-%E7%A0%81%E9%87%8D%E5%A4%8D%E6%A0%A1%E9%AA%8C)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -143,3 +145,16 @@ private String message;
     "timestamp": 1596711064350
 }
 ```
+
+## 系统业务 CODE 码重复校验
+
+如果需要对 ErrorCode 的 code 码进行重复校验,  
+需要 ErrorCode 枚举实现 IBusinessEnum 接口, 然后在项目中创建 Bean 的方式设置校验数据 
+
+```text
+@Bean
+public static void checkRepeatCode() {
+    AutomationStaticRepository.addCodeEnum(ErrorCode.values());
+}
+```
+当项目启动时, 如果有 Code 重复, 则会启动失败

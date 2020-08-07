@@ -31,7 +31,7 @@ public enum SystemCodeEnum implements IBusinessEnum {
     SERVICE_UPGRADE("1100", "服务升级"),
     SERVICE_PROHIBITED("1101", "服务禁止访问"),
     NO_RESULT("1111", "没有结果"),
-    DUBBO_REQUEST_FAILURE("1112", "DUBBO请求失败")
+    DUBBO_REQUEST_FAILURE("1112", "DUBBO请求失败"),
     ;
 
     private final String code;
