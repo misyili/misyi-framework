@@ -1,4 +1,4 @@
-package com.misyi.framework.core.context;
+package com.misyi.framework.core.component;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.context.ApplicationContext;
