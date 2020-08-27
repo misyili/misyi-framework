@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.misyi.framework.starter.mongodb.MongodbOptionAutoConfiguration,\
+com.misyi.framework.starter.mongodb.MongodbRepositoryAutoConfiguration,\
+com.misyi.framework.starter.mongodb.ReactiveMongodbAutoConfiguration

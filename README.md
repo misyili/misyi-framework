@@ -27,7 +27,7 @@
 
 ## [misyi-framework-core](./document/framework-core.md)
 
-> 可信组件类库
+> 核心组件类库
 
 ## [misyi-framework-web](./document/framework-web.md)
 
@@ -40,7 +40,11 @@
 ## 待办事项
 
 - 集成 SpringCloudAlibaba
-- 统一校验异常枚举的 code 码是否重复
+- 集成 Druid 并进行密码加密
+- PageHelper 分页查询集成
+- 字符编码解析
+- 跨域问题处理
+- 配置中心
 - 邮件发送
 - HTTP工具包
 - log 异步日志
@@ -57,9 +61,9 @@
 - 整合 mybatisplus
 - 整合 redisson 分布式锁
 - 整合 redis
-- 整合 MongoDB
+- 优化 MongoDB 组件
 - 整合 RabbitMQ
 - 整合 RoctetMQ
 - 整合微信授权登录等
-
+- 插拔式接入钉钉、企业微信报警
 - 等等一大推框架必须的东西

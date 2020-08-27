@@ -17,6 +17,7 @@
         <module>misyi-framework-api</module>
         <module>misyi-framework-core</module>
         <module>misyi-framework-web</module>
+        <module>misyi-framework-spring-boot-starter-mongodb</module>
     </modules>
 
 </project>
