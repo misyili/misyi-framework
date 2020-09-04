@@ -15,6 +15,7 @@ import org.springframework.util.Assert;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +48,7 @@ public class MongodbRepository {
             , Character.class
             , Boolean.class
             , String.class
+            , BigDecimal.class
             , Date.class
     );
 
