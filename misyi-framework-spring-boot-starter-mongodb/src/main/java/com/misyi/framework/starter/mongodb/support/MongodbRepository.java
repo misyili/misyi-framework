@@ -310,7 +310,7 @@ public class MongodbRepository {
      * @return
      */
     private static boolean checkArrayType(Field field) {
-        return field.getType() == List.class || field.getType() == java.util.ArrayList.class;
+        return java.util.List.class.isAssignableFrom(field.getType()) || field.getClass().isArray();
     }
 
     /**
@@ -319,11 +319,12 @@ public class MongodbRepository {
      * @return
      */
     private static boolean checkMapType(Field field) {
-        return field.getType() == java.util.Map.class;
+        return java.util.Map.class.isAssignableFrom(field.getType());
     }
 
+
     /**
-     * 判断是否是基本类型
+     * 判断是否是需要全量更新的数据
      * @param field
      * @return
      */
@@ -409,14 +410,10 @@ public class MongodbRepository {
                 if(checkBasicType(field)) {
                     update.set(name, value);
                 } else if(checkArrayType(field)){
-                    List list = (List) value;
-                    for (int i = 0; i < list.size(); i++) {
-                        String arrayName = name + "." + i;
-                        Object item = list.get(i);
-                        iterationField(arrayName, item.getClass(), item, update);
-                    }
+                    // List 处理, 暂时全量更新, 目前无法解决下标变为属性问题
+                    update.set(name, value);
                 } else if(checkMapType(field)){
-                    // TODO Map处理, 暂时全量更新
+                    // Map处理, 暂时全量更新
                     update.set(name, value);
                 } else {
                     iterationField(name, field.getType(), value, update);
