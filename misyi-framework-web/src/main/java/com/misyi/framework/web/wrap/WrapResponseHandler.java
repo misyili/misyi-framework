@@ -33,8 +33,10 @@ public class WrapResponseHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        return JSONUtils.toJSONString(ApiResultBean.success(HeaderHelper.getRequestId(), body));
+        ApiResultBean result = ApiResultBean.success(HeaderHelper.getRequestId(), body);
+        if (body instanceof String) {
+            return JSONUtils.toJSONString(result);
+        }
+        return result;
     }
-
-
 }
