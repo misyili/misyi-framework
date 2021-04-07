@@ -1,6 +1,6 @@
 package com.misyi.framework.web.automation;
 
-import com.misyi.framework.api.IBusinessEnum;
+import com.misyi.framework.api.IEnum;
 import com.misyi.framework.web.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -28,15 +28,15 @@ public class CodeRepeatCheckoutAutomation implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-        List<IBusinessEnum> codeList = AutomationStaticRepository.getCodeList();
+        List<IEnum<String>> codeList = AutomationStaticRepository.getCodeList();
         // 校验异常码是否重复
         List<String> checkList = new ArrayList<>();
         codeList.forEach(item -> {
-            if (checkList.contains(item.getCode())) {
-                log.error("项目启动失败, 业务编码重复: 编码={}, 描述={}", item.getCode(), item.getMessage());
-                throw new BusinessException("500", "业务编码重复:" + item.getCode());
+            if (checkList.contains(item.getValue())) {
+                log.error("项目启动失败, 业务编码重复: 编码={}, 描述={}", item.getValue(), item.getDesc());
+                throw new BusinessException("500", "业务编码重复:" + item.getValue());
             }
-            checkList.add(item.getCode());
+            checkList.add(item.getDesc());
         });
 
         AutomationStaticRepository.removeCodeList();

@@ -106,9 +106,9 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public ApiResultBean exceptionHandle(Exception e, HttpServletRequest request) {
-        String message = StringUtils.defaultIfBlank(e.getMessage(), SystemCodeEnum.SYSTEM_EXCEPTION.getMessage());
+        String message = StringUtils.defaultIfBlank(e.getMessage(), SystemCodeEnum.SYSTEM_EXCEPTION.getDesc());
         log.error(String.format("系统错误: 请求路径为%s, 异常信息为 %s", request.getRequestURI(), message));
         log.error("Exception", e);
-        return ApiResultBean.failure(HeaderHelper.getRequestId(), SystemCodeEnum.SYSTEM_EXCEPTION.getCode(), message);
+        return ApiResultBean.failure(HeaderHelper.getRequestId(), SystemCodeEnum.SYSTEM_EXCEPTION.getValue(), message);
     }
 }

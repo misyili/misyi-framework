@@ -1,6 +1,7 @@
 package com.misyi.framework.web.wrap;
 
 import com.misyi.framework.api.ApiResultBean;
+import com.misyi.framework.core.util.JSONUtils;
 import com.misyi.framework.web.header.HeaderHelper;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -32,7 +33,7 @@ public class WrapResponseHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        return ApiResultBean.success(HeaderHelper.getRequestId(), body);
+        return JSONUtils.toJSONString(ApiResultBean.success(HeaderHelper.getRequestId(), body));
     }
 
 

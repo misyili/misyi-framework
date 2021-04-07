@@ -1,7 +1,7 @@
 package com.misyi.framework.web.exception;
 
 
-import com.misyi.framework.api.IBusinessEnum;
+import com.misyi.framework.api.IEnum;
 
 /**
  * 业务异常
@@ -18,9 +18,9 @@ public class BusinessException extends RuntimeException {
         this.code = code;
     }
 
-    public BusinessException(IBusinessEnum businessEnum) {
-        super(businessEnum.getMessage());
-        this.code = businessEnum.getCode();
+    public BusinessException(IEnum<String> businessEnum) {
+        super(businessEnum.getDesc());
+        this.code = businessEnum.getValue();
     }
 
 

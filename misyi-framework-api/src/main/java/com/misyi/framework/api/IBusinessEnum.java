@@ -1,21 +1,19 @@
 package com.misyi.framework.api;
 
+
 /**
- * 业务枚举接口
+ * 业务枚举类
  *
  * @author licong
- * @since 2020-07-23 10:49 上午
+ * @date 2021/4/7 4:13 下午
  */
-public interface IBusinessEnum {
-    /**
-     * 获取code
-     * @return 业务code
-     */
-    String getCode();
+public interface IBusinessEnum<T> extends IEnum<T> {
 
     /**
-     * 获取消息
-     * @return 业务消息
+     * 获取业务描述
+     *
+     * @return
      */
-    String getMessage();
+    String getBusinessDesc();
+
 }

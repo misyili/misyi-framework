@@ -1,6 +1,6 @@
 package com.misyi.framework.web.automation;
 
-import com.misyi.framework.api.IBusinessEnum;
+import com.misyi.framework.api.IEnum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +17,10 @@ public class AutomationStaticRepository {
     /**
      * 需校验的
      */
-    private static List<IBusinessEnum> CODE_LIST = new ArrayList<>();
+    private static List<IEnum<String>> CODE_LIST = new ArrayList<>();
 
 
-    public static List<IBusinessEnum> getCodeList() {
+    public static List<IEnum<String>> getCodeList() {
         return CODE_LIST;
     }
 
@@ -28,10 +28,10 @@ public class AutomationStaticRepository {
      * 新增CODE LIST
      * @param addList 需要新增的list
      */
-    public static void addCodeEnum(List<IBusinessEnum> addList) {
+    public static void addCodeEnum(List<IEnum<String>> addList) {
         CODE_LIST.addAll(addList);
     }
-    public static void addCodeEnum(IBusinessEnum[] addList) {
+    public static void addCodeEnum(IEnum<String>[] addList) {
         CODE_LIST.addAll(Arrays.asList(addList));
     }
 

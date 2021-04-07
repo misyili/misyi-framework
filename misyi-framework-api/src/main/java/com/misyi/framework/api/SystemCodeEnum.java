@@ -1,12 +1,16 @@
 package com.misyi.framework.api;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 系统异常
  *
  * @author licong
  * @since 2020-07-23 11:01 上午
  */
-public enum SystemCodeEnum implements IBusinessEnum {
+public enum SystemCodeEnum implements IEnum<String> {
 
     /**
      * 系统响应
@@ -34,31 +38,49 @@ public enum SystemCodeEnum implements IBusinessEnum {
     DUBBO_REQUEST_FAILURE("1112", "DUBBO请求失败"),
     ;
 
-    private final String code;
-    private final String message;
+    private final String value;
+    private final String desc;
 
-    SystemCodeEnum(String code, String message) {
-        this.code = code;
-        this.message = message;
+    SystemCodeEnum(String value, String desc) {
+        this.value = value;
+        this.desc = desc;
     }
 
-    /**
-     * 获取code
-     *
-     * @return 业务code
-     */
+
     @Override
-    public String getCode() {
-        return code;
+    public String getValue() {
+        return value;
     }
 
-    /**
-     * 获取消息
-     *
-     * @return 业务消息
-     */
     @Override
-    public String getMessage() {
-        return message;
+    public String getDesc() {
+        return desc;
+    }
+
+    @Override
+    public boolean matches(String value) {
+        if (null == value) {
+            return false;
+        }
+        return value.equals(getValue());
+    }
+
+    @Override
+    public boolean matches(IEnum<String> valueBean) {
+        if (null == valueBean) {
+            return false;
+        }
+        return matches(valueBean.getValue());
+    }
+
+    private static final Map<String, SystemCodeEnum> MAPPINGS = new HashMap<>();
+
+    static {
+        Arrays.stream(SystemCodeEnum.values()).forEach(
+                item -> MAPPINGS.put(item.getValue(), item));
+    }
+
+    public static SystemCodeEnum resolve(String value) {
+        return MAPPINGS.get(value);
     }
 }

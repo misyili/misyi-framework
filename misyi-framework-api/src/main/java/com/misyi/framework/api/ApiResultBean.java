@@ -53,19 +53,19 @@ public class ApiResultBean implements Serializable {
     }
 
     public static ApiResultBean success(String requestId, Object data) {
-        return new ApiResultBean(requestId, SystemCodeEnum.SUCCESS.getCode(), SystemCodeEnum.SUCCESS.getMessage(), data);
+        return new ApiResultBean(requestId, SystemCodeEnum.SUCCESS.getValue(), SystemCodeEnum.SUCCESS.getDesc(), data);
     }
 
     public static ApiResultBean failure(String requestId, String code, String message) {
         return new ApiResultBean(requestId, code, message);
     }
 
-    public static ApiResultBean failure(String requestId, IBusinessEnum businessEnum) {
-        return new ApiResultBean(requestId, businessEnum.getCode(), businessEnum.getMessage());
+    public static ApiResultBean failure(String requestId, IEnum<String> businessEnum) {
+        return new ApiResultBean(requestId, businessEnum.getValue(), businessEnum.getDesc());
     }
 
-    public static ApiResultBean failure(String requestId, IBusinessEnum businessEnum, String message) {
-        return new ApiResultBean(requestId, businessEnum.getCode(), message);
+    public static ApiResultBean failure(String requestId, IEnum<String> businessEnum, String message) {
+        return new ApiResultBean(requestId, businessEnum.getValue(), message);
     }
 
     public String getRequestId() {
